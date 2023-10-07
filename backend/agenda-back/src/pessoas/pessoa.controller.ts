@@ -11,10 +11,7 @@ export class PessoaController {
   async findAll(): Promise<Pessoa[]> {
     return this.pessoaService.getPessoas();
   }
-  @Get('/ola')
-  async olaMundo(){
-  return 'olá'
-  }
+ 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Pessoa> {
     return this.pessoaService.getPessoaById(id);
