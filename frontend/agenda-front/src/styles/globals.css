@@ -1,0 +1,33 @@
+:root {
+  --primary-color: #192A3E;
+  --text-color:#FFF;
+  --button-color:#00A8FF;
+  --success-color:#8BC34A;
+  --negative-color:#FF6F61;
+  --tittle:24px;
+  --main-text:20px;
+  --secundary-text:16px;
+  --button-text:16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  
+}
+.whatsapp {
+  color:green;
+  font-size: 30px;
+  position: relative;
+}
+
+
+
+
