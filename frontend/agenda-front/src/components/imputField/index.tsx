@@ -1,4 +1,4 @@
-import { Empresa } from '../../../types'
+import { Empresa, Pessoa } from '../../../types'
 import styles from './styles.module.css'
 
 interface Props{
@@ -8,13 +8,21 @@ interface Props{
     label:string
     name:string
     edit:boolean
-    empresa:Empresa
-    setEmpresa:(arg1:any)=>void
+    pessoa?:Pessoa
+    empresa?:Empresa
+    setEmpresa?:(arg1:any)=>void
+    setPessoa?:(arg1:any)=>void
 }
 export default function InputField(props:Props){
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        props.setEmpresa((previous:Empresa)=>({...previous,[name]:value}))
+        if(props.empresa&&props.setEmpresa){
+            props.setEmpresa((previous:Empresa)=>({...previous,[name]:value}))
+        }
+        if(props.pessoa&&props.setPessoa){
+            props.setPessoa((previous:Pessoa)=>({...previous,[name]:value}))
+        }
+        
     };
     return(
         <div className={styles.main}>

@@ -3,6 +3,7 @@ import { Pessoa } from '../../../types'
 import Image from 'next/image'
 import whatsapp from '../../../public/assets/WhatsApp-icone.png'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 interface Props {
     pessoa: Pessoa
 }
@@ -12,8 +13,12 @@ export default function CardPessoa(props: Props) {
         height:'20px',
         width:'20px'
       }
+
+      const router = useRouter()
     return (
-        <div className={styles.main}>
+        
+
+        <div className={styles.main} onClick={()=>{router.push(`/edit-contato/${props.pessoa.id}`)}}>
             <img src={props.pessoa.photoUrl} alt={props.pessoa.username} />
             <div >
                 <h2>{props.pessoa.username}</h2>

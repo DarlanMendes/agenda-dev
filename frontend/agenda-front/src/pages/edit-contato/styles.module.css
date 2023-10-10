@@ -1,0 +1,85 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width:100vw;
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    color:white;
+}
+.main .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    height: 92px;
+    width: 100vw;
+    flex-wrap: wrap;
+    max-width: 800px;
+}
+.main .header h2{
+    font-size: var(--main-text);
+    font-weight: 100;
+    line-height: 60px;
+}
+.main .infoPart{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    width: 100vw;
+    padding: 16px 10vw;
+}
+.main .infoPart img{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+.infoPart .input{
+    margin-top: 20px;
+    width: 100vw;
+    padding: 0px 10vw;
+}
+.main .header .button .save{
+    background-color: var(--success-color);
+    border: none;
+    padding: 4px 10px;
+    color: var(--main-text);
+    border-radius: 4px;
+    width: 60px;
+}
+.main .header .button .cancel{
+    background-color: var(--negative-color);
+    border: none;
+    padding: 4px 0;
+    color: var(--main-text);
+    border-radius: 4px;
+    width: 60px;
+}
+.main .header .edit{
+    background-color:#fff306 ;
+    color: var(--primary-color);
+    font-weight: 400;
+    width: 60px;
+    padding: 4px 0px;
+    text-align: center;
+    border-radius: 4px;
+}
+.main .header .button{
+    display: flex;
+    gap: 8px;
+}
+@media screen and (min-width :769px){
+.main .infoPart{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+    padding: 0;
+}
+.main .infoPart img{    
+    grid-column: 1/ span 2;
+    justify-self: center;
+}
+}

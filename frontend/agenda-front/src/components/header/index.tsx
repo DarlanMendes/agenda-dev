@@ -1,6 +1,6 @@
 import {GiHamburgerMenu} from 'react-icons/gi'
 import styles from './styles.module.css'
-import { IconContext } from 'react-icons';
+
 interface Props {
     user:{
         username: string;

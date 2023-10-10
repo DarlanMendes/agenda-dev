@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from './styles.module.css'
 import Button from '@/components/button'
 import { FcGoogle } from 'react-icons/fc'
-import { IconContext } from 'react-icons'
+import {IconContext} from 'react-icons'
 import { getSession, signIn } from 'next-auth/react'
 export default function Login() {
     return (
@@ -31,6 +31,10 @@ export async function getServerSideProps(ctx: any) {
             destination:'/dashboard',
             permanent:false
         }
+    }
+  }else{
+    return{
+        props:{}
     }
   }
 }
