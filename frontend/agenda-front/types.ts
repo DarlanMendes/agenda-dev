@@ -13,6 +13,7 @@ export interface Pessoa {
     createdAt: string
 }
 export interface Empresa {
+    id:string;
     razaoSocial: string
     nomeFantasia: string
     email: string

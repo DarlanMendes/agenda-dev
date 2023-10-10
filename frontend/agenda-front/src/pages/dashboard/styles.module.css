@@ -1,5 +1,5 @@
 .main{
-    height:100vh;
+    height:100%;
     width: 100vw;
     background-color: var(--primary-color);
     margin: 0;
@@ -10,12 +10,13 @@
     font-size: var(--tittle);
     font-weight: 100;
     color:var(--text-color);
-    
+    margin-top: 32px;
 }
 .listCard{
+    margin-top: 8px;
     display: flex;
     flex-direction: column;
     overflow: scroll;
-    height: 250px;
+    max-height: 250px;
     justify-content: flex-start;
 }

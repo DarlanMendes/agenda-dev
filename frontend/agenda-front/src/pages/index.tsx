@@ -6,7 +6,7 @@ import Button from '@/components/button'
 import logo from '../../public/assets/logo-agenda.png'
 import Image from 'next/image'
 import Link from 'next/link'
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ weight:['100','200','300','400','500','700'],subsets:['latin']})
 
 export default function Home() {
   return (

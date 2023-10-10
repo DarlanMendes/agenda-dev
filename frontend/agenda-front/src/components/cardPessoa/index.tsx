@@ -9,19 +9,17 @@ interface Props {
 export default function CardPessoa(props: Props) {
     const imageStyle = {
         borderRadius: '50%',
-        height:'40px',
-        width:'40px'
+        height:'20px',
+        width:'20px'
       }
     return (
         <div className={styles.main}>
             <img src={props.pessoa.photoUrl} alt={props.pessoa.username} />
             <div >
                 <h2>{props.pessoa.username}</h2>
-                <h3>{props.pessoa.phoneNumber}</h3>
-            </div>
-           
                 <Link href={`https://wa.me/${props.pessoa.whatsappNumber.replace('+', '')}`}>
-                <div>
+                <div className={styles.number}>
+                <h3>{props.pessoa.phoneNumber}</h3>
                 <Image src={whatsapp} alt={`${props.pessoa.whatsappNumber}`} 
                 style={imageStyle}
                 />
@@ -30,6 +28,10 @@ export default function CardPessoa(props: Props) {
               
                 
                 </Link>
+                
+            </div>
+           
+                
            
 
 
