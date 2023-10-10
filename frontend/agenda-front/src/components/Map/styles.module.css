@@ -1,0 +1,10 @@
+.inputBusca{
+    padding: 12px 20px;
+    border-radius: 8px;
+    width:50%;
+    min-width: 300px;
+    margin-bottom: 12px;
+}
+.marker{
+    background:#fff url(https://w7.pngwing.com/pngs/1002/1014/png-transparent-google-map-maker-google-maps-computer-icons-pin-red-and-white-logo-angle-heart-map.png) no-repeat center top !important ;
+}

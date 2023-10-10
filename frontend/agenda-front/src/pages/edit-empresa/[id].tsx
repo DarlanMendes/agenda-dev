@@ -10,6 +10,8 @@ import { useState } from "react";
 import InputField from "@/components/imputField";
 import SimpleMap from "@/components/Map";
 
+
+
 interface Props {
     username: string;
     img: string;
@@ -21,7 +23,9 @@ export default function editEmpresa(props: Props) {
     const [empresa, setEmpresa] = useState<Empresa>(props?.empresa)
     const [edit, setEdit] = useState(false)
     const router = useRouter()
-
+    const[lat, setLat]=useState(-3.7)
+    const[lng, setLng]=useState(-37.8)
+    const[endereco, setEndereco]=useState(props.empresa.endereco)
     return (
         <div className={styles.main}>
             <div className={styles.header}>
@@ -122,7 +126,16 @@ export default function editEmpresa(props: Props) {
                     empresa={empresa}
                     setEmpresa={setEmpresa}
                 />
-                <SimpleMap/>
+           
+           <SimpleMap 
+            lat={lat}
+            setLat={setLat} 
+            lng={lng}
+            setLng={setLng}
+            edit={edit}
+            endereco={endereco}
+            setEndereco={setEndereco}
+           />
 
 
 

@@ -20,7 +20,11 @@ interface Props {
 export default function editPessoa(props: Props) {
     const [pessoa, setPessoa] = useState<Pessoa>(props?.pessoa)
     const [edit, setEdit] = useState(false)
+    const[lat, setLat]=useState(-3.7)
+    const[lng, setLng]=useState(-37.8)
+    const[endereco, setEndereco]=useState(props.pessoa.address)
     const router = useRouter()
+    
 
     return (
         <div className={styles.main}>
@@ -122,7 +126,15 @@ export default function editPessoa(props: Props) {
                     pessoa={pessoa}
                     setPessoa={setPessoa}
                 />
-                <SimpleMap/>
+                <SimpleMap 
+                lat={lat}
+                setLat={setLat} 
+                lng={lng}
+                setLng={setLng}
+                edit={edit}
+                endereco={endereco}
+                setEndereco={setEndereco}
+                />
 
 
 
