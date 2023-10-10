@@ -59,8 +59,8 @@ export default function SimpleMap(props: Props) {
                 >
                     <Marker
                         position={{
-                            lat: props.lat,
-                            lng: props.lng
+                            lat: props.lat!,
+                            lng: props.lng!
                         }}
                         options={{
                             label: {

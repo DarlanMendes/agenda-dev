@@ -4,6 +4,7 @@
     align-items: center;
     padding: 0px 16px;
     height:92px;
+    width: 100%;
 }
 .user{
     display: flex;

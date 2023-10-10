@@ -49,7 +49,7 @@ export default function Dashboard(props: Props) {
         <div className={`${styles.main}`}>
             <Header user={props} />
             {/* Empresas  seção Cards de empresa */}
-
+            <div className={styles.content}>
             <h2> Meus Contatos</h2>
             <div className={styles.listCard}>
                 {props.pessoas.map((pessoa, index) => (
@@ -70,6 +70,9 @@ export default function Dashboard(props: Props) {
                 <AniversarianteCard key={index} aniversariante={aniversariante}  />
             ))}
             </div>
+
+            </div>
+           
           
             
 
