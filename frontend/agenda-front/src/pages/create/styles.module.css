@@ -70,8 +70,8 @@
     display: flex;
     gap: 8px;
 }
-.main .deleteButton{
-    background-color: #ff7979;
+.main .createButton{
+    background-color:var(--success-color);
     color:var(--main-text);
     width:100%;
     padding: 16px 0;

@@ -2,7 +2,7 @@ import { Empresa, Pessoa } from '../../../types'
 import styles from './styles.module.css'
 
 interface Props{
-    text:string
+    text?:string
     type:string
     placeholder:string
     label:string

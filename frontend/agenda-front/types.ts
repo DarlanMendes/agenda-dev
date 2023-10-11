@@ -10,6 +10,8 @@ export interface Pessoa {
     whatsappNumber: string,
     phoneNumber: string,
     photoUrl: string,
+    lat:number
+    lng:number
     createdAt: string
 }
 export interface Empresa {
@@ -24,4 +26,6 @@ export interface Empresa {
     telefoneFixo: string
     endereco: string
     logoUrl: string
+    lat:number
+    lng: number
 }

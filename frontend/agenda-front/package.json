@@ -14,14 +14,17 @@
     "@mui/icons-material": "^5.14.12",
     "@mui/material": "^5.14.12",
     "@react-google-maps/api": "^2.19.2",
+    "@supabase/supabase-js": "^2.38.0",
     "axios": "^1.5.1",
     "date-fns": "^2.30.0",
+    "formidable": "^3.5.1",
     "next": "^13.5.4",
     "next-auth": "^4.23.2",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
-    "react-places-autocomplete": "^7.3.0"
+    "react-places-autocomplete": "^7.3.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/google-map-react": "^2.1.8",
@@ -29,6 +32,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-places-autocomplete": "^7.2.11",
+    "@types/uuid": "^9.0.5",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
     "typescript": "^5"

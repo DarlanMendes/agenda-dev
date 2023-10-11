@@ -17,7 +17,7 @@ interface Props {
 
 export default function SimpleMap(props: Props) {
     
-
+    console.log(props)
     const [map, setMap] = useState<google.maps.Map>()
     const [searchBox, setSearchBox] = React.useState<google.maps.places.SearchBox>( )
     const onMapLoad = (ref:google.maps.Map)=>{
@@ -45,6 +45,7 @@ export default function SimpleMap(props: Props) {
                 googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string}
                 libraries={['places']}
                 >
+                    Endereço
                     <StandaloneSearchBox onLoad={onLoad} onPlacesChanged={onPlacesChanged}>
                         <input type='text' className={styles.inputBusca} disabled={!props.edit} placeholder={props.endereco} />
                     </StandaloneSearchBox>

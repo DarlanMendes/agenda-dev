@@ -7,6 +7,7 @@ import axios from "axios";
 import CardEmpresa from "@/components/cardEmpresa";
 import AniversarianteCard from "@/components/AniversarianteCard";
 import {  parse, } from 'date-fns';
+import BotaoCriar from "@/components/botaoCriar";
 
 interface Props {
     username: string;
@@ -74,7 +75,7 @@ export default function Dashboard(props: Props) {
             </div>
            
           
-            
+            <BotaoCriar/>
 
         </div>
     )

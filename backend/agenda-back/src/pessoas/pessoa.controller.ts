@@ -25,6 +25,7 @@ export class PessoaController {
   @Put(':id')
   async update(@Param('id') id: string, @Body() pessoa: Pessoa): Promise<Pessoa> {
     return this.pessoaService.updatePessoa(id, pessoa);
+
   }
 
   @Delete(':id')

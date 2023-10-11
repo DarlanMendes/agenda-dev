@@ -11,10 +11,10 @@ export class Empresa {
   @Column()
   nomeFantasia: string;
 
-  @Column()
+  @Column({nullable:false})
   email: string;
 
-  @Column()
+  @Column({nullable:false})
   cnpj: string;
 
   @Column()
@@ -29,11 +29,17 @@ export class Empresa {
   @Column()
   telefoneFixo: string;
 
-  @Column()
+  @Column({nullable:false})
   endereco: string;
 
   @Column()
   logoUrl: string;
+
+  @Column({ type: 'decimal', precision: 10, scale: 7, nullable: false })
+  lat:number
+
+  @Column({ type: 'decimal', precision: 10, scale: 7, nullable: false })
+  lng: number
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;

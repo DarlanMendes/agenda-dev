@@ -6,13 +6,13 @@ export class Pessoa {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({nullable:false})
   username: string;
 
-  @Column()
+  @Column({nullable:false})
   email: string;
 
-  @Column({ type: 'date', nullable: true })
+  @Column({ type: 'date', nullable: false })
   birthdate: Date;
 
   @Column({ nullable: true })
@@ -35,6 +35,12 @@ export class Pessoa {
 
   @Column({ nullable: true })
   photoUrl: string;
+
+  @Column({ type: 'decimal', precision: 10, scale: 7, nullable: false })
+  lat:number
+
+  @Column({ type: 'decimal', precision: 10, scale: 7, nullable: false })
+  lng: number
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;

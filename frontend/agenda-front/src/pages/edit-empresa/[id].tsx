@@ -23,9 +23,40 @@ export default function editEmpresa(props: Props) {
     const [empresa, setEmpresa] = useState<Empresa>(props?.empresa)
     const [edit, setEdit] = useState(false)
     const router = useRouter()
-    const[lat, setLat]=useState(-3.7)
-    const[lng, setLng]=useState(-37.8)
-    const[endereco, setEndereco]=useState(props.empresa.endereco)
+    const [lat, setLat] = useState(-3.7)
+    const [lng, setLng] = useState(-37.8)
+    const [endereco, setEndereco] = useState(props.empresa.endereco)
+    const handleUpload = async () => {
+        const { razaoSocial, email, nomeFantasia, cnpj, responsavel, celular, whatsappNumber, telefoneFixo, logoUrl } = empresa
+        const bodyEmpresa = {
+            razaoSocial, email, nomeFantasia, cnpj, responsavel, celular, whatsappNumber, telefoneFixo, logoUrl, lat: lat, lng: lng, endereco: endereco
+        }
+        console.log(bodyEmpresa)
+        try {
+            const data = await axios.put(`http://localhost:3001/empresas/${empresa.id}`, bodyEmpresa)
+            if (data) {
+                alert('Dados atualizados com sucesso')
+                router.push('/dashboard')
+            } else {
+                alert('Erro ao atualizar dados')
+            }
+        } catch (e) {
+            alert(`Ocorreu um erro: ${e}`)
+        }
+    }
+    const handleDelete = async () => {
+        if (confirm("Realmente Deseja Deletar esse Contato?")) {
+            try {
+                const response = await axios.delete(`http:localhost:3001/empresas/${empresa.id}`)
+                if (response) {
+                    alert('Contato deletado com Sucesso!')
+                    router.push('/dashboard')
+                }
+            } catch (e) {
+                alert(`Ocorreu um erro: ${e}`)
+            }
+        }
+    }
     return (
         <div className={styles.main}>
             <div className={styles.header}>
@@ -33,8 +64,8 @@ export default function editEmpresa(props: Props) {
                 <h2>Editar Empresa</h2>
                 {edit ?
                     <div className={styles.button}>
-                        <button className={styles.save}>Salvar</button>
-                        <button className={styles.cancel} onClick={()=>{setEdit(false);setEmpresa(props.empresa)}}>Cancelar</button>
+                        <button className={styles.save} onClick={() => handleUpload()}>Salvar</button>
+                        <button className={styles.cancel} onClick={() => { setEdit(false); setEmpresa(props.empresa) }}>Cancelar</button>
                     </div>
 
                     :
@@ -86,8 +117,8 @@ export default function editEmpresa(props: Props) {
                     empresa={empresa}
                     setEmpresa={setEmpresa}
                 />
-                 {/* Responsável ------------------------------------------------ */}
-                 <InputField
+                {/* Responsável ------------------------------------------------ */}
+                <InputField
                     name={'responsavel'}
                     text={empresa.responsavel}
                     label="Responsável"
@@ -96,8 +127,8 @@ export default function editEmpresa(props: Props) {
                     empresa={empresa}
                     setEmpresa={setEmpresa}
                 />
-                 {/* Whatsapp------------------------------------------------ */}
-                 <InputField
+                {/* Whatsapp------------------------------------------------ */}
+                <InputField
                     name={'whatsappNumber'}
                     text={empresa.whatsappNumber}
                     label="Whatsapp"
@@ -106,8 +137,8 @@ export default function editEmpresa(props: Props) {
                     empresa={empresa}
                     setEmpresa={setEmpresa}
                 />
-                 {/* Celular------------------------------------------------ */}
-                 <InputField
+                {/* Celular------------------------------------------------ */}
+                <InputField
                     name={'celular'}
                     text={empresa.celular}
                     label="Celular"
@@ -116,8 +147,8 @@ export default function editEmpresa(props: Props) {
                     empresa={empresa}
                     setEmpresa={setEmpresa}
                 />
-                 {/* Telefone fixo------------------------------------------------ */}
-                 <InputField
+                {/* Telefone fixo------------------------------------------------ */}
+                <InputField
                     name={'telefoneFixo'}
                     text={empresa.telefoneFixo}
                     label="Telefone Fixo"
@@ -126,17 +157,22 @@ export default function editEmpresa(props: Props) {
                     empresa={empresa}
                     setEmpresa={setEmpresa}
                 />
-           
-           <SimpleMap 
-            lat={lat}
-            setLat={setLat} 
-            lng={lng}
-            setLng={setLng}
-            edit={edit}
-            endereco={endereco}
-            setEndereco={setEndereco}
-           />
 
+                <SimpleMap
+                    lat={lat}
+                    setLat={setLat}
+                    lng={lng}
+                    setLng={setLng}
+                    edit={edit}
+                    endereco={endereco}
+                    setEndereco={setEndereco}
+                />
+
+                <button
+                    onClick={() => { handleDelete() }}
+                    className={styles.deleteButton}
+                >Deletar Contato
+                </button>
 
 
             </div>

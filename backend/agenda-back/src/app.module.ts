@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { PessoaModule } from './pessoas/pessoa.module';
 import { EmpresaModule } from './empresas/empresa.module';
 import { Empresa } from './empresas/empresa.entity';
+import { UploadModule } from './module/upload/upload.module';
 
 
 @Module({
@@ -21,7 +22,8 @@ import { Empresa } from './empresas/empresa.entity';
       synchronize: true, 
     }),
     PessoaModule,
-    EmpresaModule
+    EmpresaModule,
+    UploadModule
   ],
   controllers: [],
   providers: [],
