@@ -11,7 +11,7 @@ export class UploadService {
                 persistSession:false
             }
         })
-        const data = await supabase.storage.from("image").upload(file.originalname, file.buffer,{
+        const data = await supabase.storage.from("image").upload(file?.originalname, file.buffer,{
             upsert:true
         })
         return data

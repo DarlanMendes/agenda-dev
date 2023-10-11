@@ -8,6 +8,9 @@ import CardEmpresa from "@/components/cardEmpresa";
 import AniversarianteCard from "@/components/AniversarianteCard";
 import {  parse, } from 'date-fns';
 import BotaoCriar from "@/components/botaoCriar";
+import { useState } from "react";
+import { useRouter } from "next/router";
+
 
 interface Props {
     username: string;
@@ -37,20 +40,49 @@ export default function Dashboard(props: Props) {
 
         return aniversariantesDoMes;
     }
-    // Suponha que você tenha uma lista de pessoas
+    
     const listaDePessoas: Pessoa[] = [...props.pessoas]; // Preencha com seus dados
 
     const aniversariantesOrganizados = organizarAniversariantes(listaDePessoas);
 
     
-   
+   const[busca, setBusca] = useState('')
+   const [filtrados, setFiltrados] = useState<Pessoa[]>()
+    const handleBusca=(e:any)=>{
+        console.log(busca)
+        let filtrado :Pessoa[]=[]
+        e.preventDefault()
+        setBusca(e.target.value)
+        if(busca.length>3){
+            props.pessoas.forEach((pessoa)=>{
+                console.log(pessoa.username.includes(busca), busca)
+                if(pessoa.username.toLowerCase().includes(busca.toLowerCase())){
+                    
+                    filtrado.push(pessoa)
+                }
+            
+            })
+            setFiltrados(filtrado)
+            console.log(filtrado)
+        }else{
+            setFiltrados([])
+        }
 
+    }
+    const router = useRouter()
 
     return (
         <div className={`${styles.main}`}>
             <Header user={props} />
             {/* Empresas  seção Cards de empresa */}
             <div className={styles.content}>
+            
+            <input placeholder="Digite sua busca" onChange={(e)=>{handleBusca(e)}} className={styles.inputFiltrados}/>
+            {filtrados?.map((filtrado,index)=>(
+            <div key={index} className={styles.filtrados} onClick={()=>{router.push(`/edit-contato/${filtrado.id}`)}}>
+                {filtrado.username}
+            </div>
+            ))}
             <h2> Meus Contatos</h2>
             <div className={styles.listCard}>
                 {props.pessoas.map((pessoa, index) => (
@@ -74,7 +106,7 @@ export default function Dashboard(props: Props) {
 
             </div>
            
-          
+            
             <BotaoCriar/>
 
         </div>
